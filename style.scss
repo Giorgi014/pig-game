@@ -162,7 +162,7 @@ button {
     .both_player {
       @include displayCenter(space-between, center);
       width: 100%;
-      .player_one {
+      #player_one {
         @include displayCenter(center, center);
         flex-direction: column;
         width: 50%;
@@ -190,7 +190,7 @@ button {
           }
         }
       }
-      .player_two {
+      #player_two {
         @include displayCenter(center, center);
         flex-direction: column;
         width: 50%;

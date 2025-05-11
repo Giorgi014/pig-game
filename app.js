@@ -1,6 +1,8 @@
 const NEW_GAME_BUTTON = document.getElementById("new_game");
 const ROLL_BUTTON = document.getElementById("roll");
 const HOLD_BUTTON = document.getElementById("hold");
+const PLAYER_ONE = document.getElementById("player_one");
+const PLAYER_TWO = document.getElementById("player_two");
 const LEFT_PLAYER_TOTAL_SCORE = document.getElementById("left_score_number");
 const LEFT_PLAYER_SCORE = document.getElementById("left_number");
 const RIGHT_PLAYER_TOTAL_SCORE = document.getElementById("rigth_score_number");
@@ -19,6 +21,11 @@ let NUMBER_THREE = 3;
 let NUMBER_FOUR = 4;
 let NUMBER_FIVE = 5;
 let NUMBER_SIX = 6;
+
+let CURRENT_PLAYER = 1;
+let PLAYER_ONE_TOTAL_SCORE = 0;
+let PLAYER_TWO_TOTAL_SCORE = 0;
+let CURRENT_ROUND_SCORE = 0;
 
 const allNumbers = () => {
   one.value = NUMBER_ONE;
@@ -43,6 +50,22 @@ const hideAllDice = () => {
   six.style.display = "none";
 };
 
+const switchPlayer = () => {
+  CURRENT_ROUND_SCORE = 0;
+  LEFT_PLAYER_SCORE.textContent = CURRENT_ROUND_SCORE;
+  RIGTT_PLAYER_SCORE.textContent = CURRENT_ROUND_SCORE;
+
+  if (CURRENT_PLAYER === 1) {
+    CURRENT_PLAYER = 2;
+    PLAYER_ONE.style.backgroundColor = "rgb(187, 122, 151)";
+    PLAYER_TWO.style.backgroundColor = "rgb(220, 174, 186)";
+  } else {
+    CURRENT_PLAYER = 1;
+    PLAYER_ONE.style.backgroundColor = "rgb(220, 174, 186)";
+    PLAYER_TWO.style.backgroundColor = "rgb(187, 122, 151)";
+  }
+};
+
 ROLL_BUTTON.addEventListener("click", () => {
   hideAllDice();
   DICE_CONTAINER.style.display = "flex";
@@ -62,8 +85,28 @@ ROLL_BUTTON.addEventListener("click", () => {
     six.style.display = "flex";
   }
 
-  LEFT_PLAYER_SCORE.textContent = randomValue;
-  RIGTT_PLAYER_SCORE.textContent = randomValue;
+  if (randomValue === 1) {
+    CURRENT_ROUND_SCORE = 0;
+    switchPlayer();
+  } else {
+    CURRENT_ROUND_SCORE += randomValue;
+  }
 
   console.log(randomValue);
+});
+
+HOLD_BUTTON.addEventListener("click", () => {
+  if (CURRENT_PLAYER === 1) {
+    CURRENT_PLAYER = 2;
+    PLAYER_ONE.style.backgroundColor = "rgb(187, 122, 151)";
+    PLAYER_TWO.style.backgroundColor = "rgb(220, 174, 186)";
+    PLAYER_ONE_TOTAL_SCORE += CURRENT_ROUND_SCORE;
+    LEFT_PLAYER_TOTAL_SCORE.textContent = PLAYER_ONE_TOTAL_SCORE;
+  } else {
+    CURRENT_PLAYER = 1;
+    PLAYER_ONE.style.backgroundColor = "rgb(220, 174, 186)";
+    PLAYER_TWO.style.backgroundColor = "rgb(187, 122, 151)";
+    PLAYER_TWO_TOTAL_SCORE += CURRENT_ROUND_SCORE;
+    RIGHT_PLAYER_TOTAL_SCORE.textContent = PLAYER_TWO_TOTAL_SCORE;
+  }
 });

@@ -204,7 +204,7 @@ button {
   align-items: center;
   width: 100%;
 }
-.main_container .both_player_container .both_player .player_one {
+.main_container .both_player_container .both_player #player_one {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -214,13 +214,13 @@ button {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
-.main_container .both_player_container .both_player .player_one #left_score_number {
+.main_container .both_player_container .both_player #player_one #left_score_number {
   font-size: 60px;
   font-weight: 500;
   margin-bottom: 120px;
   color: rgb(199, 54, 95);
 }
-.main_container .both_player_container .both_player .player_one .left_current_number {
+.main_container .both_player_container .both_player #player_one .left_current_number {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -233,10 +233,10 @@ button {
   color: white;
   font-size: 18px;
 }
-.main_container .both_player_container .both_player .player_one .left_current_number #left_number {
+.main_container .both_player_container .both_player #player_one .left_current_number #left_number {
   font-size: 30px;
 }
-.main_container .both_player_container .both_player .player_two {
+.main_container .both_player_container .both_player #player_two {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -246,13 +246,13 @@ button {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-.main_container .both_player_container .both_player .player_two #rigth_score_number {
+.main_container .both_player_container .both_player #player_two #rigth_score_number {
   font-size: 60px;
   font-weight: 500;
   margin-bottom: 120px;
   color: rgb(199, 54, 95);
 }
-.main_container .both_player_container .both_player .player_two .rigth_current_number {
+.main_container .both_player_container .both_player #player_two .rigth_current_number {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -265,6 +265,6 @@ button {
   color: white;
   font-size: 18px;
 }
-.main_container .both_player_container .both_player .player_two .rigth_current_number #rigth_number {
+.main_container .both_player_container .both_player #player_two .rigth_current_number #rigth_number {
   font-size: 30px;
 }/*# sourceMappingURL=style.css.map */
